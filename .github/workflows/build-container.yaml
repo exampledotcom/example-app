@@ -25,7 +25,7 @@ jobs:
           docker login -u "${DOCKERHUB_USERNAME}" -p "${DOCKERHUB_TOKEN}"
       - name: 'Build Docker image'
         run: |
-          docker build -t "docker.io/${DOCKERHUB_USERNAME}/${{ env.IMAGE_NAME_TAG }}" -f ${{ github.workspace }}/app/Dockerfile ${{ github.workspace }}/app/
+          docker build -t "docker.io/${DOCKERHUB_USERNAME}/${{ env.IMAGE_NAME_TAG }}" .
       - name: 'Push Docker image'
         run: |
           docker push "docker.io/${DOCKERHUB_USERNAME}/${{ env.IMAGE_NAME_TAG }}"
